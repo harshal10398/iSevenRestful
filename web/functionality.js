@@ -112,5 +112,6 @@ function universalPut(formId,url,callback){
         xhttp.setRequestHeader(form.elements[i].name,form.elements[i].value);
     }
 //    xhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    //testing netbeans git!!!!
     xhttp.send(new URLSearchParams(new FormData(document.getElementById(formId))).toString());
 }
