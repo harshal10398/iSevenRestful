@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="functionality.js"></script>
+    </head>
+    <body>
+        <input type="text" id="agent-phone">
+        <table border="1" id="agent-table"></table>
+        <input type="button" value="get agent details" onclick="universalGet('agent-phone','agent-table',['AGENT_NAME','AGENT_PHONE'],jsonToTable,'Agent','all')">
+    </body>
+</html>

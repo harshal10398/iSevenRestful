@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="functionality.js"></script>
+    </head>
+    <body>
+        <input type="text" id="party-gstin">
+        <table border="1" id="party-table">
+            
+        </table>
+        <input value="get party details" type="button" onclick="universalGet('party-gstin','party-table',['GSTIN','PARTY_NAME','PARTY_PHONE','PARTY_ADDRESS'],jsonToTable,'Party','all')">
+        <h4>Putting new party!! yayyyy!!!</h4>
+        <form id="partyForm" method="PUT" action="Party">
+            Name:
+            <input type="text" name="partyName" id="partyName" required>
+            <br>
+            Phone:
+            <input type="tel" name="partyPhone" id="partyPhone" pattern="[6-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" required>
+            
+            <br>
+            Address:
+            <input type="text" name="partyAddress" id="partyAddress" required>
+            <br>
+            GSTIN: 
+            <input type="text" name="partyGstin" id="partyGstin" required>
+            <br>
+            <select name="partySelection" id="partySelection" required>
+                <option value="one">1</option>
+                <option value="two">2</option>
+            </select>
+            
+            <input type="radio" name="partyRadio" id="partyRadio1" value="rad1" required="">
+            <input type="radio" name="partyRadio" id="partyRadio2" value="rad2" required="">
+            <input type="button" value="submit" onclick="universalPut('partyForm','Party',errorNotifier)">
+            <!--<input type="submit" onclick="universalPost(['partyName','partyPhone','partyAddress'],'Party')">-->
+        </form>
+    </body>
+</html>

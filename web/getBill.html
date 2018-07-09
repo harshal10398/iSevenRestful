@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <input type="number" id="bill-get">
+        <input type="button" onclick="getBill()" value="get bill info">
+        <br>
+        <input type="button" onclick="getBill(true)" value="all bills">
+        
+        <div id="bill-table-container">
+            
+        </div>
+        
+        <script>
+            function getBill(all){
+//                document.body.innerHTML+=document.getElementById("bill-get");
+                var xhttp=new XMLHttpRequest();
+                var billGet=document.getElementById("bill-get");
+                var billTableContainer=document.getElementById("bill-table-container");
+                xhttp.onreadystatechange = function (){
+                    if(this.readyState==4 && this.status==200){
+                        var bill=JSON.parse(this.responseText);
+                        console.log(this.responseText);
+                        billTableContainer.innerHTML="";
+                        for(var i=0;i<bill.length;i++){
+                            billTableContainer.innerHTML+="<h4>"+i+"</h4>";
+                            billTableContainer.innerHTML+="<table border='1'>"
+                                    +"<tr><th>Row</th><td>"+bill[i].row+"</td></tr>"
+                                    +"<tr><th>BillNo</th><td>"+bill[i].values.BILL_NO+"</td></tr>"
+                                    +"<tr><th>PartyAgentId</th><td>"+bill[i].values.PARTY_AGENT_ID+"</td></tr>"
+                                    +"<tr><th>Bill date</th><td>"+bill[i].values.BILL_DATE+"</td></tr>"
+                                    +"<tr><th>Payment due</th><td>"+bill[i].values.PAYMENT_DUE+"</td></tr>"
+                                    +"<tr><th>Delivery address</th><td>"+bill[i].values.DELIVERY_ADDRESS+"</td></tr>"
+                                    +"<tr><th>Rate/meter</th><td>"+bill[i].values.RATE_PER_METER+"</td></tr>"
+                                    +"<tr><th>SGST</th><td>"+bill[i].values.SGST+"</td></tr>"
+                                    +"<tr><th>CGST</th><td>"+bill[i].values.CGST+"</td></tr>"
+                                    +"<tr><th>Total amount</th><td>"+bill[i].values.TOTAL_AMOUNT+"</td></tr>"
+                                    +"</table>";
+                        }
+                        
+                    }
+//                        document.body.innerHTML+=this.responseText;
+                }
+                xhttp.open("GET","Bill/"+(all?"all":billGet.value),async=true);
+                xhttp.send();
+            }
+            
+        </script>
+       
+    </body>
+</html>

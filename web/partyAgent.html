@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="functionality.js"></script>
+    </head>
+    <body>
+        <h4>Getting info: </h4>
+        PartyAgentId: <input type="number" id="partyAgentId">
+        <table border="1" id="partyAgentContainer">
+        
+        </table>
+        <!--<input type="button" onclick="getPartyAgent(partyAgentId,partyAgentContainer,['PARTY_AGENT_ID','PARTY_NAME'])" value="get info">-->
+        <input type="button" value="get party agent info" onclick="universalGet('partyAgentId','partyAgentContainer',['PARTY_AGENT_ID','PARTY_NAME','AGENT_PHONE'],jsonToTable,'PartyAgent','all')">
+        <h4>Putting info: </h4>
+        <p>Not implemented yet!</p>
+        
+    </body>
+</html>
